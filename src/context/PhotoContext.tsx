@@ -32,6 +32,10 @@ const PhotoProvider = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    setPage(1);
+  }, [albumId]);
+
   const filterByAlbum = useMemo(() => {
     return photos.filter(({ albumId: id }) =>
       albumId ? albumId === id : true
@@ -58,7 +62,7 @@ const PhotoProvider = (props) => {
     if (queriedPhotos.length === 1) {
       setPage(Math.max(1, page - 1));
     }
-    
+
     setPhotos((prev) => {
       return prev.filter(({ id }) => id !== photoId);
     });
