@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { PhotoProvider } from "./context/PhotoContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <PhotoProvider>
     <App />
-  </React.StrictMode>,
+  </PhotoProvider>,
   document.getElementById("root")
 );
